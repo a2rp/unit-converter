@@ -1,43 +1,360 @@
-.studio { width: min(1080px, calc(100% - 48px)); margin: 0 auto; padding: 44px 0 54px; scroll-margin-top: 82px; }
-.studioHeader { display: flex; align-items: flex-end; justify-content: space-between; gap: 15px; margin-bottom: 16px; }
-.studioHeader > div > p { margin-bottom: 5px; color: var(--forest); font-family: var(--mono); font-size: 7px; font-weight: 700; letter-spacing: .12em; }
-.studioHeader h2 { color: var(--ink); font-family: var(--display); font-size: clamp(27px, 3.5vw, 36px); font-weight: 550; letter-spacing: -.05em; }
-.studioHeader > div > span { display: block; margin-top: 5px; color: var(--muted); font-size: 9px; }
-.liveBadge { display: inline-flex; align-items: center; gap: 6px; padding: 6px 8px; border: 1px solid #dce5c9; border-radius: 99px; color: #526440; background: #f4f7eb; font-family: var(--mono); font-size: 6px; letter-spacing: .08em; white-space: nowrap; }
-.liveBadge i { width: 5px; height: 5px; border-radius: 50%; background: #85a852; box-shadow: 0 0 0 3px #e7efd7; }
-.categoryTabs { display: flex; gap: 6px; overflow-x: auto; padding: 2px 1px 9px; scrollbar-color: var(--line-strong) transparent; scrollbar-width: thin; }
-.categoryTabs button { display: inline-flex; min-height: 35px; flex: 0 0 auto; align-items: center; gap: 6px; padding: 0 9px; border: 1px solid var(--line); border-radius: 5px; color: var(--muted); background: var(--paper); font-size: 8px; cursor: pointer; transition: border-color 150ms ease, box-shadow 150ms ease, color 150ms ease; }
-.categoryTabs button:hover, .categoryTabs button.activeCategory { border-color: var(--forest); color: var(--forest-deep); box-shadow: 0 0 0 2px rgb(72 101 82 / 8%); }
-.categoryTabs button.activeCategory { background: #f1f5e8; }
-.categoryTabs svg { width: 13px; height: 13px; }
-.converter { position: relative; display: grid; grid-template-columns: 1fr 34px 1fr; align-items: stretch; gap: 12px; padding: 18px; border: 1px solid var(--line); border-radius: 8px; background: var(--paper); box-shadow: 0 14px 40px rgb(43 57 43 / 6%); }
-.inputSide, .outputSide { min-width: 0; padding: 13px; border: 1px solid var(--line); border-radius: 6px; background: #fbfcf9; }
-.inputSide > label:first-child, .outputLabel > label { color: var(--muted); font-family: var(--mono); font-size: 7px; letter-spacing: .1em; }
-.inputSide > input { display: block; width: 100%; height: 56px; margin-top: 7px; padding: 0; border: 0; outline: 0; color: var(--ink); background: transparent; font-family: var(--display); font-size: clamp(27px, 4vw, 39px); font-weight: 550; letter-spacing: -.04em; }
-.inputSide > input:focus-visible { outline: 2px solid var(--forest); outline-offset: 2px; border-radius: 3px; }
-.selectLabel { display: block; margin-top: 17px; margin-bottom: 5px; color: var(--muted); font-family: var(--mono); font-size: 6px; letter-spacing: .1em; }
-.inputSide select, .outputSide select { width: 100%; min-height: 37px; padding: 0 9px; border: 1px solid var(--line-strong); border-radius: 4px; outline: 0; color: var(--ink-soft); background: #fff; font-size: 8px; }
-.inputSide select:focus, .outputSide select:focus { border-color: var(--forest); box-shadow: 0 0 0 2px rgb(72 101 82 / 10%); }
-.swapButton { display: grid; align-self: center; justify-items: center; gap: 4px; padding: 6px 0; border: 0; color: var(--forest); background: transparent; cursor: pointer; }
-.swapButton:hover { color: var(--forest-deep); }
-.swapButton svg { width: 15px; height: 15px; }
-.swapButton span { font-family: var(--mono); font-size: 5px; letter-spacing: .1em; }
-.outputSide { border-color: #dbe6cb; background: #f8faef; }
-.outputLabel { display: flex; align-items: center; justify-content: space-between; gap: 7px; }
-.outputLabel > span { display: inline-flex; align-items: center; gap: 3px; color: #687c4e; font-family: var(--mono); font-size: 5px; letter-spacing: .07em; white-space: nowrap; }
-.outputLabel svg { width: 9px; height: 9px; }
-.result { display: block; height: 56px; overflow: hidden; margin-top: 7px; color: var(--forest-deep); font-family: var(--display); font-size: clamp(27px, 4vw, 39px); font-weight: 550; letter-spacing: -.04em; line-height: 56px; text-overflow: ellipsis; white-space: nowrap; }
-.resultBar { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 11px; padding: 9px 11px; border: 1px solid var(--line); border-radius: 5px; background: #fafbf8; }
-.equation { display: flex; min-width: 0; align-items: center; gap: 9px; overflow: hidden; color: var(--muted); font-family: var(--mono); font-size: 8px; text-overflow: ellipsis; white-space: nowrap; }
-.equation svg { width: 12px; height: 12px; flex: 0 0 auto; color: var(--forest); }
-.equation strong { overflow: hidden; color: var(--forest-deep); font-weight: 700; text-overflow: ellipsis; }
-.resultBar button { display: inline-flex; min-height: 29px; flex: 0 0 auto; align-items: center; gap: 5px; padding: 0 8px; border: 1px solid var(--line); border-radius: 4px; color: var(--forest-deep); background: white; font-size: 7px; font-weight: 700; cursor: pointer; transition: border-color 150ms ease, box-shadow 150ms ease; }
-.resultBar button:hover:not(:disabled) { border-color: var(--forest); box-shadow: 0 0 0 2px rgb(72 101 82 / 8%); }
-.resultBar button:disabled { opacity: .45; cursor: default; }
-.resultBar button svg { width: 11px; height: 11px; }
-.copyMessage { margin-top: 6px; color: var(--forest); font-size: 7px; }
-.methodNote { display: flex; align-items: flex-start; gap: 6px; margin-top: 10px; color: var(--muted); font-size: 7px; line-height: 1.55; }
-.methodNote svg { width: 11px; height: 11px; flex: 0 0 auto; margin-top: 1px; color: var(--forest); }
-@media (max-width: 620px) { .converter { grid-template-columns: 1fr 30px 1fr; gap: 6px; padding: 10px; } .inputSide, .outputSide { padding: 9px; } .outputLabel > span { display: none; } .resultBar { align-items: flex-start; flex-direction: column; } }
-@media (max-width: 520px) { .studio { width: calc(100% - 32px); padding: 33px 0 42px; } .studioHeader { align-items: flex-start; flex-direction: column; } .converter { grid-template-columns: 1fr; gap: 7px; padding: 10px; } .swapButton { display: flex; min-height: 24px; align-items: center; justify-content: center; gap: 5px; } .swapButton svg { width: 13px; height: 13px; transform: rotate(90deg); } .inputSide > input, .result { font-size: 32px; } .resultBar { flex-direction: row; align-items: center; } }
-@media (prefers-reduced-motion: reduce) { .categoryTabs button, .resultBar button { transition: none; } }
+.studio {
+  width: min(1080px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 44px 0 54px;
+  scroll-margin-top: 82px;
+  .studioHeader {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 16px;
+  }
+  .studioHeader > div > p {
+    margin-bottom: 5px;
+    color: var(--forest);
+    font-family: var(--mono);
+    font-size: 7px;
+    font-weight: 700;
+    letter-spacing: .12em;
+  }
+  .studioHeader h2 {
+    color: var(--ink);
+    font-family: var(--display);
+    font-size: clamp(27px, 3.5vw, 36px);
+    font-weight: 550;
+    letter-spacing: -.05em;
+  }
+  .studioHeader > div > span {
+    display: block;
+    margin-top: 5px;
+    color: var(--muted);
+    font-size: 9px;
+  }
+  .liveBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 8px;
+    border: 1px solid #dce5c9;
+    border-radius: 99px;
+    color: #526440;
+    background: #f4f7eb;
+    font-family: var(--mono);
+    font-size: 6px;
+    letter-spacing: .08em;
+    white-space: nowrap;
+  }
+  .liveBadge i {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #85a852;
+    box-shadow: 0 0 0 3px #e7efd7;
+  }
+  .categoryTabs {
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    padding: 2px 1px 9px;
+    scrollbar-color: var(--line-strong) transparent;
+    scrollbar-width: thin;
+  }
+  .categoryTabs button {
+    display: inline-flex;
+    min-height: 35px;
+    flex: 0 0 auto;
+    align-items: center;
+    gap: 6px;
+    padding: 0 9px;
+    border: 1px solid var(--line);
+    border-radius: 5px;
+    color: var(--muted);
+    background: var(--paper);
+    font-size: 8px;
+    cursor: pointer;
+    transition: border-color 150ms ease, box-shadow 150ms ease, color 150ms ease;
+  }
+  .categoryTabs button:hover, .categoryTabs button.activeCategory {
+    border-color: var(--forest);
+    color: var(--forest-deep);
+    box-shadow: 0 0 0 2px rgb(72 101 82 / 8%);
+  }
+  .categoryTabs button.activeCategory {
+    background: #f1f5e8;
+  }
+  .categoryTabs svg {
+    width: 13px;
+    height: 13px;
+  }
+  .converter {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 34px 1fr;
+    align-items: stretch;
+    gap: 12px;
+    padding: 18px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--paper);
+    box-shadow: 0 14px 40px rgb(43 57 43 / 6%);
+  }
+  .inputSide, .outputSide {
+    min-width: 0;
+    padding: 13px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: #fbfcf9;
+  }
+  .inputSide > label:first-child, .outputLabel > label {
+    color: var(--muted);
+    font-family: var(--mono);
+    font-size: 7px;
+    letter-spacing: .1em;
+  }
+  .inputSide > input {
+    display: block;
+    width: 100%;
+    height: 56px;
+    margin-top: 7px;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    color: var(--ink);
+    background: transparent;
+    font-family: var(--display);
+    font-size: clamp(27px, 4vw, 39px);
+    font-weight: 550;
+    letter-spacing: -.04em;
+  }
+  .inputSide > input:focus-visible {
+    outline: 2px solid var(--forest);
+    outline-offset: 2px;
+    border-radius: 3px;
+  }
+  .selectLabel {
+    display: block;
+    margin-top: 17px;
+    margin-bottom: 5px;
+    color: var(--muted);
+    font-family: var(--mono);
+    font-size: 6px;
+    letter-spacing: .1em;
+  }
+  .inputSide select, .outputSide select {
+    width: 100%;
+    min-height: 37px;
+    padding: 0 9px;
+    border: 1px solid var(--line-strong);
+    border-radius: 4px;
+    outline: 0;
+    color: var(--ink-soft);
+    background: #fff;
+    font-size: 8px;
+  }
+  .inputSide select:focus, .outputSide select:focus {
+    border-color: var(--forest);
+    box-shadow: 0 0 0 2px rgb(72 101 82 / 10%);
+  }
+  .swapButton {
+    display: grid;
+    align-self: center;
+    justify-items: center;
+    gap: 4px;
+    padding: 6px 0;
+    border: 0;
+    color: var(--forest);
+    background: transparent;
+    cursor: pointer;
+  }
+  .swapButton:hover {
+    color: var(--forest-deep);
+  }
+  .swapButton svg {
+    width: 15px;
+    height: 15px;
+  }
+  .swapButton span {
+    font-family: var(--mono);
+    font-size: 5px;
+    letter-spacing: .1em;
+  }
+  .outputSide {
+    border-color: #dbe6cb;
+    background: #f8faef;
+  }
+  .outputLabel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 7px;
+  }
+  .outputLabel > span {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    color: #687c4e;
+    font-family: var(--mono);
+    font-size: 5px;
+    letter-spacing: .07em;
+    white-space: nowrap;
+  }
+  .outputLabel svg {
+    width: 9px;
+    height: 9px;
+  }
+  .result {
+    display: block;
+    height: 56px;
+    overflow: hidden;
+    margin-top: 7px;
+    color: var(--forest-deep);
+    font-family: var(--display);
+    font-size: clamp(27px, 4vw, 39px);
+    font-weight: 550;
+    letter-spacing: -.04em;
+    line-height: 56px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .resultBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 11px;
+    padding: 9px 11px;
+    border: 1px solid var(--line);
+    border-radius: 5px;
+    background: #fafbf8;
+  }
+  .equation {
+    display: flex;
+    min-width: 0;
+    align-items: center;
+    gap: 9px;
+    overflow: hidden;
+    color: var(--muted);
+    font-family: var(--mono);
+    font-size: 8px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .equation svg {
+    width: 12px;
+    height: 12px;
+    flex: 0 0 auto;
+    color: var(--forest);
+  }
+  .equation strong {
+    overflow: hidden;
+    color: var(--forest-deep);
+    font-weight: 700;
+    text-overflow: ellipsis;
+  }
+  .resultBar button {
+    display: inline-flex;
+    min-height: 29px;
+    flex: 0 0 auto;
+    align-items: center;
+    gap: 5px;
+    padding: 0 8px;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    color: var(--forest-deep);
+    background: white;
+    font-size: 7px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: border-color 150ms ease, box-shadow 150ms ease;
+  }
+  .resultBar button:hover:not(:disabled) {
+    border-color: var(--forest);
+    box-shadow: 0 0 0 2px rgb(72 101 82 / 8%);
+  }
+  .resultBar button:disabled {
+    opacity: .45;
+    cursor: default;
+  }
+  .resultBar button svg {
+    width: 11px;
+    height: 11px;
+  }
+  .copyMessage {
+    margin-top: 6px;
+    color: var(--forest);
+    font-size: 7px;
+  }
+  .methodNote {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    margin-top: 10px;
+    color: var(--muted);
+    font-size: 7px;
+    line-height: 1.55;
+  }
+  .methodNote svg {
+    width: 11px;
+    height: 11px;
+    flex: 0 0 auto;
+    margin-top: 1px;
+    color: var(--forest);
+  }
+  @media (max-width: 620px) {
+    .converter {
+      grid-template-columns: 1fr 30px 1fr;
+      gap: 6px;
+      padding: 10px;
+    }
+    .inputSide, .outputSide {
+      padding: 9px;
+    }
+    .outputLabel > span {
+      display: none;
+    }
+    .resultBar {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
+  @media (max-width: 520px) {
+    .studio {
+      width: calc(100% - 32px);
+      padding: 33px 0 42px;
+    }
+    .studioHeader {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+    .converter {
+      grid-template-columns: 1fr;
+      gap: 7px;
+      padding: 10px;
+    }
+    .swapButton {
+      display: flex;
+      min-height: 24px;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+    .swapButton svg {
+      width: 13px;
+      height: 13px;
+      transform: rotate(90deg);
+    }
+    .inputSide > input, .result {
+      font-size: 32px;
+    }
+    .resultBar {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .categoryTabs button, .resultBar button {
+      transition: none;
+    }
+  }
+}

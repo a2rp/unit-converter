@@ -6,12 +6,12 @@ import SiteHeader from "./components/siteHeader/index.jsx";
 import styles from "./App.module.css";
 
 const App = () => (
-  <div className={styles.page} id="top">
+  <div className={styles.appShell} id="top">
     <SiteHeader />
     <main>
       <section className={styles.hero} aria-labelledby="hero-title">
         <div className={styles.heroCopy}>
-          <p className={styles.kicker}><span /> Make every measurement make sense</p>
+          <p className={styles.contextLabel}><span /> Make every measurement make sense</p>
           <h1 id="hero-title">Same distance.<br /><em>Different language.</em></h1>
           <p className={styles.intro}>Move a value between the units you know and the ones you need. Clear results for everyday measurements, all in one simple workspace.</p>
           <div className={styles.heroActions}><a className={styles.primaryLink} href="#studio">Convert a value <FiArrowDown aria-hidden="true" /></a><span><FiCompass aria-hidden="true" /> Seven ways to measure</span></div>
@@ -27,7 +27,7 @@ const App = () => (
       </section>
       <ConversionStudio />
       <section className={styles.guide} id="guide" aria-labelledby="guide-title">
-        <div className={styles.guideIntro}><p className={styles.kicker}>A NOTE ON UNITS</p><h2 id="guide-title">Seven categories, one clear answer.</h2><p>Pick a measurement family to see the units that belong together. The converter handles scale factors and, for temperature, the offset between scales.</p></div>
+        <div className={styles.guideIntro}><p className={styles.contextLabel}>A NOTE ON UNITS</p><h2 id="guide-title">Seven categories, one clear answer.</h2><p>Pick a measurement family to see the units that belong together. The converter handles scale factors and, for temperature, the offset between scales.</p></div>
         <div className={styles.guideCards}>
           <article><span>01 / PHYSICAL</span><h3>Length, mass, area, volume</h3><p>Convert everyday metric and imperial measures using standard unit relationships.</p></article>
           <article><span>02 / TEMPERATURE</span><h3>Each scale has its own zero</h3><p>Celsius, Fahrenheit, and Kelvin require both a scale adjustment and an offset.</p></article>

@@ -1,4 +1,4 @@
-﻿import { FiGithub, FiMaximize2 } from "react-icons/fi";
+import { FiGithub, FiMaximize2 } from "react-icons/fi";
 import styles from "./styles.module.css";
 
 const SiteHeader = () => (

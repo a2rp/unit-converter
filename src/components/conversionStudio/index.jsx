@@ -62,7 +62,7 @@ const ConversionStudio = () => {
         <button className={styles.swapButton} type="button" onClick={reverseUnits} aria-label="Swap units"><FiRepeat aria-hidden="true" /><span>SWAP</span></button>
         <div className={styles.outputSide}>
           <div className={styles.outputLabel}><label htmlFor="target-unit">To</label><span><FiCheck aria-hidden="true" /> PRECISE CONVERSION</span></div>
-          <output className={styles.result} htmlFor="source-amount target-unit" aria-live="polite">{converted ? formatNumber(converted.value) : "—"}</output>
+          <output className={styles.result} htmlFor="source-amount target-unit" aria-live="polite">{converted ? formatNumber(converted.value) : "-"}</output>
           <label className={styles.selectLabel} htmlFor="target-unit">Result unit</label>
           <select id="target-unit" value={targetId} onChange={(event) => { setTargetId(event.target.value); setCopyMessage(""); }}>
             {category.units.map((unit) => <option key={unit.id} value={unit.id}>{unit.label} ({unit.symbol})</option>)}

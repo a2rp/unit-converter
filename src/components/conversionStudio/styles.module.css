@@ -73,7 +73,7 @@
     background: var(--paper);
     font-size: 8px;
     cursor: pointer;
-    transition: border-color 150ms ease, box-shadow 150ms ease, color 150ms ease;
+    transition: border-color 150ms ease, box-shadow 150ms ease;
   }
   .categoryTabs button:hover, .categoryTabs button.activeCategory {
     border-color: var(--forest);
